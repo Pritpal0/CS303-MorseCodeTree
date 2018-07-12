@@ -1,3 +1,9 @@
-﻿  Main.cpp
-c:\users\jll7f\desktop\data_structures\binary_tree_versions\binary_v1\binarysearchtree\binarysearchtree\main.cpp(4): warning C4018: '<': signed/unsigned mismatch
-  BinarySearchTree.vcxproj -> C:\Users\jll7f\Desktop\Data_structures\Binary_Tree_versions\Binary_v1\BinarySearchTree\Debug\BinarySearchTree.exe
+﻿  BST.cpp
+c:\users\user\documents\github\cs303-morsecodetree\binarysearchtree\bst.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\github\cs303-morsecodetree\binarysearchtree\bst.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\github\cs303-morsecodetree\binarysearchtree\bst.cpp(41): warning C4018: '<': signed/unsigned mismatch
+  Main.cpp
+  mapEncode.cpp
+c:\users\user\documents\github\cs303-morsecodetree\binarysearchtree\mapencode.cpp(11): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  BinarySearchTree.vcxproj -> C:\Users\User\Documents\GitHub\CS303-MorseCodeTree\Debug\BinarySearchTree.exe

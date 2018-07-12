@@ -1,28 +1,41 @@
 #include "BST.h"
-string encode(string secret, map <char, string> this_is_cheating) {
-	string encoded;
-	for (int i = 0; i < secret.length(); i++) {
-		encoded += this_is_cheating[secret[i]];
-		encoded += " ";
-	}
-	return encoded;
-}
+#include "mapEncode.h"
 
 int main() {
-	map<char, string> ugh;
-	BST World_Tree;
+	
+	BST MorseCodeTree;
+	mapEncode MorseCodeMap;
+
 	string line;
-	string code;
 	char letter;
+
+	char left = '_';
+	char right = '.';
+
+	//Change this text to the desired text to encode. spaces do not work at the moment
+	string text = "Hello";
+
 	ifstream file_input("morse.txt");
 
-	while (file_input.good())
+	while (file_input.good()) //read the file untill the end of the file
 	{
-		getline(file_input, line);
-		letter = line[0];
-		code = line.substr(1,line.length());
-		ugh[letter] = code;
-		World_Tree.insert(letter, code);
+		getline(file_input, line); //read the whole line into 1 string
+		letter = line[0]; //take the first index, 0 and assign that to the letter
+		line = line.substr(1,line.length()); //removes the letter from the string and only keeps the morse code
+		MorseCodeTree.insert(letter, line, left, right); //inserts the letter and the code into the desired node
+		MorseCodeMap.mapBuilder(letter, line); //builds the map for the morse code to later decode
 	}
+
+	cout << "Note: There is no upper/lower case differentiation in Morse code; just the alphabet." << endl;
+	cout << endl;
+
+	string encodedtxt = MorseCodeMap.toEncode(text); //returns the text in morse code
+	cout << "Message " << '"' << text << '"'<< " Encoded is: " << '"' << encodedtxt << '"' << endl;
+	cout << endl;
+
+	//decodes the morse code text into words
+	cout << "Message " << '"' << encodedtxt << '"' << " Decodes to: " << '"' << MorseCodeTree.decode(encodedtxt) << '"' << endl;
+	cout << endl;
+
 	system("pause");
 }

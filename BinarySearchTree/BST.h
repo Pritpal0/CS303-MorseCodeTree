@@ -52,8 +52,8 @@ public:
 		create_tree(ROOT, tree_counter);
 	};
 	void create_tree(Node* prev_root, int tree_counter); // Make a blank tree
-	void insert(char the_letter, string the_position);
-	char decode(string message);
+	void insert(char the_letter, string the_position, char left, char right);
+	string decode(string message);
 
 	//Add more later
 };
