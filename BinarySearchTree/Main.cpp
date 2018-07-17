@@ -38,6 +38,7 @@ int main() {
 	//decodes the morse code text into words
 	cout << "Message " << '"' << encodedtxt << '"' << " Decodes to: " << '"' << MorseCodeTree.decode(encodedtxt) << '"' << endl;
 	cout << endl;
+	file_input.close();
 
 	system("pause");
 }
