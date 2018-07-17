@@ -2,15 +2,17 @@
 #include "mapEncode.h"
 
 int main() {
-	
-	BST MorseCodeTree;
+	//Change variables here
+	char left = '_';
+	char right = '.';
+
+	BST MorseCodeTree(left, right);
 	mapEncode MorseCodeMap;
 
 	string line;
 	char letter;
 
-	char left = '_';
-	char right = '.';
+	
 
 	//Change this text to the desired text to encode. spaces do not work at the moment
 	string text = "Hello";
@@ -22,7 +24,7 @@ int main() {
 		getline(file_input, line); //read the whole line into 1 string
 		letter = line[0]; //take the first index, 0 and assign that to the letter
 		line = line.substr(1,line.length()); //removes the letter from the string and only keeps the morse code
-		MorseCodeTree.insert(letter, line, left, right); //inserts the letter and the code into the desired node
+		MorseCodeTree.insert(letter, line); //inserts the letter and the code into the desired node
 		MorseCodeMap.mapBuilder(letter, line); //builds the map for the morse code to later decode
 	}
 

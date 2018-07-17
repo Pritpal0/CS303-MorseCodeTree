@@ -12,15 +12,15 @@ void BST::create_tree(Node* prev_root, int tree_counter) {
 	create_tree(temp_right, tree_counter);
 }
 
-void BST::insert(char the_letter, string the_position, char left, char right)
+void BST::insert(char the_letter, string the_position)
 {
 	Node* update_node = ROOT;
 	for (int i = 0; i < the_position.length(); i++)
 	{
-		if (the_position[i] == right) {
+		if (the_position[i] == move_left) {
 			update_node = update_node->get_left();
 		}
-		else if (the_position[i] == left) {
+		else if (the_position[i] == move_right) {
 			update_node = update_node->get_right();
 		}
 	}
@@ -41,20 +41,26 @@ string BST::decode(string message)
 		for (i; i < message.length(); i++)
 		{
 
-			if (message[i] == '.') {
+			if (message[i] == move_left) {
 				update_node = update_node->get_left();
 			}
-			else if (message[i] == '_') {
+			else if (message[i] == move_right) {
 				update_node = update_node->get_right();
 			}
-
 			//if a space is detected in the morse code, will break instead of searching for it in the node
 			else if (message[i] == ' ') {
 				i++;
 				break;
 			}
+			else {
+			}
 		}
+		if(update_node->get_letter() != NULL)
 		decodedMsg += update_node->get_letter(); //adds the letter that was found at the node to a existing string which keeps track of the word
+		else {
+			decodedMsg += " ";
+		}
+
 	}
 	return decodedMsg;
 }

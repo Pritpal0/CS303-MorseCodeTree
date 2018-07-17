@@ -7,7 +7,7 @@ using namespace std;
 
 struct Node {
 private:
-	char letter; // This will hold the letter vaule
+	char letter = NULL; // This will hold the letter vaule
 	string code; // This will hold the position of the Node
 	Node* left_side; // This is the left side of the tree
 	Node* right_side; // This is the right side of the tree
@@ -46,13 +46,16 @@ class BST
 private:
 	Node* ROOT = new Node();
 	int tree_counter = 0;
+	char move_left, move_right;
 
 public:
-	BST() {
+	BST(char l, char r) {
 		create_tree(ROOT, tree_counter);
+		move_left = l;
+		move_right = r;
 	};
 	void create_tree(Node* prev_root, int tree_counter); // Make a blank tree
-	void insert(char the_letter, string the_position, char left, char right);
+	void insert(char the_letter, string the_position);
 	string decode(string message);
 
 	//Add more later
