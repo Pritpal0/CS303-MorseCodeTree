@@ -20,11 +20,14 @@ public:
 		right_side = NULL;
 		root = NULL;
 	};
+	// This constructor is used while building the tree
 	Node(Node* previous) {
 		left_side = NULL;
 		right_side = NULL;
 		root = previous;
 	};
+	
+	//This are the simple getters and setters
 	char get_letter() { return letter; };
 	string get_code() { return code; };
 	Node* get_left() { return left_side; };
@@ -44,18 +47,23 @@ public:
 class BST
 {
 private:
+	//Class Variables
 	Node* ROOT = new Node();
 	int tree_counter = 0;
 	char move_left, move_right;
 
 public:
+	//The constructer
 	BST(char l, char r) {
 		create_tree(ROOT, tree_counter);
 		move_left = l;
 		move_right = r;
 	};
+	// The tree builder
 	void create_tree(Node* prev_root, int tree_counter); // Make a blank tree
+	// This adds the values to the tree
 	void insert(char the_letter, string the_position);
+	// This decodes
 	string decode(string message);
 
 	//Add more later
